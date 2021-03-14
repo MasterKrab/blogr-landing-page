@@ -68,6 +68,12 @@
    color: c.$grayish-blue;
 
    @media screen and (min-width: 900px){
+      &__item:hover{
+         text-decoration: underline;
+      }
+   }
+
+   @media screen and (min-width: 900px){
       gap: 1rem;
    }
 }
