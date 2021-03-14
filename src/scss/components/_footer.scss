@@ -1,0 +1,73 @@
+@use "abstracts/vars/colors" as c;
+
+.footer{
+   background-color: c.$very-dark-black-blue;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 1.5rem;
+   margin-top: 50px;
+   border-top-right-radius: 100px;
+   text-align: center;
+   font-family: Overpass, sans-serif;
+   
+   @media screen and (min-width: 1200px){
+      display: grid;
+      grid-template-columns: 200px 1000px;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: start;
+      min-height: 300px;
+      padding-top: 3rem;
+   }
+   
+   @media screen and (max-width: 1200px){
+      &__logo{
+         margin-top: 2rem;
+         margin-bottom: 3rem;
+      }
+   }
+
+   &__navigation{
+      width: 100%;
+   }
+}
+
+
+.footer-menu,
+.footer-submenu{
+   list-style: none;
+   padding-left: 0;
+   display: flex;
+   flex-direction: column;
+
+   &__link{
+      color: inherit;
+      text-decoration: none;
+   }
+}
+
+.footer-menu{
+   color: c.$white;
+   gap: 2rem;
+
+   &__link{
+      font-weight: bold;
+      display: block;
+      margin-bottom: 1rem;
+   }
+
+   @media screen and (min-width: 900px){
+      flex-direction: row;
+      justify-content: space-around;
+   }
+}
+
+.footer-submenu{
+   gap: .5rem;
+   color: c.$grayish-blue;
+
+   @media screen and (min-width: 900px){
+      gap: 1rem;
+   }
+}

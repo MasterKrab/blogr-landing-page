@@ -1,0 +1,99 @@
+@use "abstracts/vars/colors" as c;
+
+.introduction{
+   color: lighten(c.$very-dark-blue, 5%);
+   text-align: center;
+   font-family: Overpass, sans-serif;
+   padding-top: 5rem;
+   overflow: hidden;
+
+   &__title{
+      font-size: 1.7rem;
+      margin-bottom: 3rem;
+
+      @media screen and (min-width: 900px){
+         font-size: 2.3rem;
+      }
+   }
+
+   &__illustration{
+      content: url(../assets/img/illustration-editor-mobile.svg);
+      width: 100%;
+
+      @media screen and (min-width: 1000px){
+         content: url(../assets/img/illustration-editor-desktop.svg);
+         order: 2;
+         width: 120%;
+         position: relative;
+         top: -150px;
+         right: -50px;
+      }
+
+      @media screen and (min-width: 1200px){
+         width: 130%;
+      }
+
+      @media screen and (min-width: 1500px){
+         right: 0;
+         width: 100%;
+      }
+   }
+
+   @media screen and (min-width: 1000px){
+      &__body{
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+
+         @media screen and (min-width: 1200px){
+            grid-template-columns: 1fr 650px;
+         }
+
+         @media screen and (min-width: 1500px){
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 1800px;
+            margin-left: auto;
+            margin-right: auto;
+         }
+      }
+   }
+
+
+   &__cards{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      @media screen and (min-width: 1000px){
+         justify-self: end;
+         max-width: 650px;
+      }
+
+      @media screen and (min-width: 1500px){
+         justify-self: center;
+      }
+   }
+}
+
+.introduction-card{
+   width: 80%;
+
+   &__title{
+      font-size: 1.7rem;
+
+      @media screen and (min-width: 900px){
+         text-align: start;
+      }
+   }
+
+   &__text{
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: lighten(c.$very-dark-grayish-blue, 5%);
+
+      @media screen and (min-width: 900px){
+         text-align: start;
+         font-size: 1rem;
+         line-height: 2;
+      }
+   }
+}

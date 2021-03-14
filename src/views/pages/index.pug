@@ -1,10 +1,11 @@
+include ../config/config
 doctype html
 html(lang="en")
    head
       meta(charset="UTF-8")
       meta(http-equiv="X-UA-Compatible", content="IE=edge")
       meta(name="viewport", content="width=device-width, initial-scale=1.0")
-      title 
+      title Blogr
       //- Favicons
       link(rel="apple-touch-icon", sizes="57x57", href="assets/favicons/apple-icon-57x57.png")
       link(rel="apple-touch-icon", sizes="60x60", href="assets/favicons/apple-icon-60x60.png")
@@ -25,4 +26,78 @@ html(lang="en")
       meta(name="theme-color", content="#ffffff")
       //- CSS
       link(rel="stylesheet", href="css/styles.css")
+      //- Fonts
+      link(rel="preconnect", href="https://fonts.gstatic.com")
+      //- Overpass, Ubuntu
+      link(href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap", rel="stylesheet")
    body
+      header.main-header 
+         .main-header__top
+            .top-bar 
+               img.top-bar__logo(src="../assets/img/logo.svg", alt="Blogr logo")
+               .top-bar__button#menu-icon
+                  span.top-bar__icon 
+            nav.navigation#main-menu
+               ul.menu
+                  each page in pages
+                     li.menu__item
+                        a.menu__link(href= page.url)= page.title
+                        if page.child.length > 0
+                        ul.submenu
+                           each subpage in page.child
+                              li.submenu__item: a.submenu__link(href= subpage.url)= subpage.title
+               .account 
+                  a.account__link(href="/") Login
+                  a.account__link.account__link--red(href="/") Sign Up
+         .main-header__body
+            h1.main-header__title A modern publishing platform
+            p.main-header__text Grow your audience and build your online brand
+            .main-header__links 
+               a.main-header__link(href="/") Start for Free
+               a.main-header__link.main-header__link--red(href="/") Learn More
+      main.main 
+
+         article.introduction 
+            h2.introduction__title Designed for the future
+            .introduction__body
+               .introduction__illustration
+               .introduction__cards 
+                  article.introduction-card 
+                     h3.introduction-card__title Introducing an extensible editor
+                     p.introduction-card__text Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. The editor supports management of multiple blogs and allows easy manipulation of embeds such as images, videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or change the looks of a blog.
+                  
+                  article.introduction-card 
+                     h3.introduction-card__title Robust content management
+                     p.introduction-card__text Flexible content management enables users to easily move through posts. Increase the usability of your blog by adding customized categories, sections, format, or flow. With this functionality, you’re in full control.
+
+         article.infrastructure
+            .infrastructure__illustration 
+            .infrastructure__card
+               h2.infrastructure__title State of the Art Infrastructure
+               p.infrastructure__text With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity. This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.
+
+         article.benefits
+            .benefits__illustration 
+            .benefits__cards
+               .benefits-card
+                  h2.benefits-card__title Free, open, simple
+                  p.benefits-card__text Blogr is a free and open source application backed by a large community of helpful developers. It supports features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools, and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.
+               
+               .benefits-card
+                  h2.benefits-card__title Powerful tooling
+                  p.benefits-card__text Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but capable of producing even the most complicated sites.
+
+      footer.footer
+         img.footer__logo(src="../assets/img/logo.svg", alt="Blogr logo")
+
+         nav.footer__navigation 
+            ul.footer-menu 
+               each page in pages
+                  li.footer-menu__item
+                     a.footer-menu__link(href=page.url)= page.title 
+                     if page.child.length > 0
+                     ul.footer-submenu
+                        each subpages in page.child
+                           li.footer-submenu__item: a.footer-submenu__link(href= subpages.url)= subpages.title
+
+      script(src="js/scripts-min.js")          

@@ -1,0 +1,81 @@
+@use "abstracts/vars/colors" as c;
+
+.infrastructure{
+   background-image: url(../assets/img/bg-pattern-circles.svg), linear-gradient(c.$gradient-very-dark-gray-blue, c.$gradient-very-dark-desaturated-blue);
+   background-repeat: no-repeat;
+   background-position-x: center, 0;
+   background-position-y: -170px, 0;
+   background-size: 550px, 100%;
+   min-height: 600px;
+   border-bottom-left-radius: 100px;
+   border-top-right-radius: 120px;
+   display: flex;
+   flex-direction: column;
+   color: c.$white;
+   font-family: Overpass, sans-serif;
+   text-align: center;
+   padding: 1.5rem;
+   margin-top: 250px;
+   position: relative;
+
+   @media screen and (min-width: 1200px){
+      background-image: url(../assets/img/bg-pattern-circles.svg), linear-gradient(to right, c.$gradient-very-dark-gray-blue, c.$gradient-very-dark-desaturated-blue);
+      min-height: 400px;
+      background-position-x: -200px, 0;
+      background-position-y: -500px, 0;
+      background-size: 1000px, 100%;
+      text-align: start;
+      max-width: 1700px;
+      margin: 0 auto;
+   }
+
+   &__illustration{
+      content: url(../assets/img/illustration-phones.svg);
+      width: 100%;
+      max-width: 400px;
+      position: absolute;
+      top: -180px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media screen and (min-width: 1200px){
+         left: 10%;
+         top: 50%;
+         transform: translateY(-50%);
+         max-width: 500px;
+      }
+      
+   }
+
+   &__card{
+      width: 90%;
+      margin: auto auto 40px;
+      max-width: 500px;
+
+      @media screen and (min-width: 1200px){
+         margin-right: 50px;
+         margin-bottom: auto;
+      }
+      
+      @media screen and (min-width: 1400px){
+         margin-right: 200px;
+      }
+   }
+
+   &__title{
+      font-size: 2rem;
+
+      @media screen and (min-width: 350px){
+         font-size: 2.5rem;
+      }
+
+      @media screen and (min-width: 1200px){
+         font-size: 2.3rem;
+      }
+   }
+
+   &__text{
+      color: c.$grayish-blue;
+      line-height: 1.5;
+   }
+}
